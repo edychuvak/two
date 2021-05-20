@@ -1,11 +1,16 @@
 import hashlib
+import sys
+import os
 
+checksum = sys.argv[1]
+path = sys.argv[2]
 checksums = open('checksums', 'r')
 lines = checksums.readlines()
 
 for line in lines:
   values = line.split(" ")
   fileName = values[0]
+  fileName = os.path.join(path,fileName)
   hashMechanism = values[1]
   checksum = values[2]
 
